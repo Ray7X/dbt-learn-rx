@@ -30,6 +30,15 @@ models:
           - unique
           - not_null
       - name: status
+        description: "{{ doc('order_status') }}"
         tests:
           - accepted_values:
               values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
+  - name: orders
+    description: one row per order
+    columns:
+      - name: order_id
+        description: Primary key
+        test:
+         -unique
+         -not null
